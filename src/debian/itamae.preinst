@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+if [ -e /usr/bin/itamae ]; then
+  # itamae-omnibus
+  if [ "_$(readlink /usr/bin/itamae)" = "_/opt/itamae/embedded/bin/itamae" ]; then
+    rm /usr/bin/itamae
+  fi
+fi

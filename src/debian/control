@@ -1,0 +1,31 @@
+Source: itamae
+Section: net
+Priority: optional
+Maintainer: Sorah Fukumori <sorah@cookpad.com>
+Uploaders: Sorah Fukumori <sorah@cookpad.com>
+Build-Depends:
+  bison,
+  chrpath,
+  coreutils (>= 7.5),
+  debhelper (>= 10),
+  file,
+  libffi-dev,
+  libncurses-dev,
+  libreadline6-dev,
+  libssl-dev,
+  netbase,
+  openssl,
+  pkg-config,
+  procps,
+  tzdata,
+  zlib1g-dev
+Standards-Version: 4.3.0
+Homepage: https://github.com/itamae-kitchen/itamae
+
+Package: itamae
+Architecture: any
+Depends:
+  ${misc:Depends},
+  ${shlibs:Depends},
+Description: Configuration management tool inspired by Chef, but
+ simpler and lightweight.

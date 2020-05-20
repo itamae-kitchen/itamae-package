@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_makeshlibs:
+	:
+
+override_dh_auto_install:
+	env ITAMAE_DESTDIR="$(CURDIR)/debian/tmp" ./build-ruby.sh
+	env ITAMAE_DESTDIR="$(CURDIR)/debian/tmp" ./install-itamae.sh

@@ -1,0 +1,5 @@
+itamae (1:ITAMAE_VERSION+PKGREV~DIST) DIST; urgency=medium
+
+  * itamae-package
+
+ -- Sorah Fukumori <sorah@cookpad.com>  Tue, 19 May 2020 19:09:52 +0000

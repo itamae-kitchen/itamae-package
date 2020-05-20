@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+itamae_version = File.read(File.join(__dir__, 'config.sh')).each_line.grep(/^ITAMAE_VERSION=/).last.chomp.split(?=,2)[1]
+gem 'itamae', itamae_version
+
+gem 'specinfra-ec2_metadata-tags', '0.0.4'

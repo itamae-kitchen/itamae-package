@@ -1,0 +1,7 @@
+itamae: dir-or-file-in-build-tree
+itamae: duplicate-font-file
+itamae: incorrect-libdir-in-la-file
+itamae: missing-dep-for-interpreter
+itamae: ruby-script-but-no-ruby-dep
+itamae: script-not-executable
+itamae: wrong-path-for-interpreter

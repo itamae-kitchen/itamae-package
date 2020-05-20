@@ -16,7 +16,7 @@ class << Gem
   def default_dir
     File.join(
       *[
-        ENV['ITAMAE_PACKAGE_INSTALL_GEM_TO_OPT'] ? [ENV['ITAMAE_DESTDIR'] || '/', "opt/itamae/embedded/lib/ruby/gems"] : 'var/lib/itamae/gems',
+        ENV['ITAMAE_PACKAGE_INSTALL_GEM_TO_OPT'] ? [ENV['ITAMAE_DESTDIR'] || '/', "opt/itamae/embedded/lib/ruby/gems"] : '/var/lib/itamae/gems',
         RbConfig::CONFIG['ruby_version'],
       ].flatten,
     )

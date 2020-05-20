@@ -16,7 +16,7 @@
   make -j $(nproc) install DESTDIR=${ITAMAE_DESTDIR}
 )
 
-ln -s "$(realpath ${ITAMAE_DESTDIR}/opt/itamae)" /opt/itamae
+ln -s "${ITAMAE_DESTDIR}/opt/itamae" /opt/itamae
 mkdir -p /opt/itamae/embedded/lib/ruby/vendor_ruby/rubygems/defaults
 cp rubygems_os.rb /opt/itamae/embedded/lib/ruby/vendor_ruby/rubygems/defaults/operating_system.rb
 

@@ -20,7 +20,11 @@ docker run --rm \
   -v $PWD/tmp/build-$$:/work:ro \
   itamae-package-${dist} /work/test-entrypoint.sh
 
+debian_version="$(grep '^Version: ' ./tmp/build-$$/out/*.changes | cut -d' ' -f2)"
+debian_tag="$(echo "${debian_version}" | sed -e 's/~/_/g' -e 's/:/%/g')"
+
 mkdir -p out
 mv ./tmp/build-$$/out/* ./out/
 
-
+git tag -d debian/${debian_tag} || :
+git tag debian/${debian_tag}

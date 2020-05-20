@@ -15,7 +15,4 @@ if [ "_${DIST}" = "_trusty" -o "_${DIST}" = "_xenial" ]; then
 fi
 
 cd /build/itamae
-mk-build-deps -r -i -t 'apt-get -y -o Debug::pkgProblemResolver=yes --no-install-recommends' debian/control
-
-mkdir -p /opt
-chown buildbot /opt
+./prebuild.sh

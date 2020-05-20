@@ -1,0 +1,49 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - 'useradd -m buildbot'
+
+      # using IPv6 addrinfo registered to "localhost" might fail because containers have no IPv6
+      # https://img.sorah.jp/x/20200519_171607_MSwJTE7E3T.png
+      # https://github.com/moby/moby/issues/35954
+      - "( sed -e '/^::1/d' /etc/hosts > /etc/hosts2 && cp /etc/hosts2 /etc/hosts ) || :"
+
+      - apt-get update
+      - apt-get install -y --no-install-recommends tzdata debhelper dh-make devscripts gnupg2 equivs lsb-release
+
+  pre_build:
+    commands:
+      - 'mkdir out'
+      - 'tar xf source.tar*'
+      - 'rm -fv source.tar*'
+
+      - 'cd "${DEBUILD_CODEBUILD_SOURCE}"'
+
+      - './prebuild.sh'
+      - 'chown -R buildbot:buildbot  "${CODEBUILD_SRC_DIR}"'
+
+  build:
+    run-as: buildbot
+    commands:
+      - 'export HOME=/home/buildbot'
+      - 'cd "${CODEBUILD_SRC_DIR}/${DEBUILD_CODEBUILD_SOURCE}"'
+      - 'debuild -us -uc -B'
+      - 'ls -la "${CODEBUILD_SRC_DIR}"'
+
+  post_build:
+    commands:
+      - 'cd "${CODEBUILD_SRC_DIR}"'
+      - 'mkdir -p out'
+      - 'cat ${DEBUILD_CODEBUILD_SOURCE}/debian/files | cut -d" " -f1 | xargs mv -v -t out/'
+      - 'mv -v ./*.changes -t out/'
+      - 'mv -v ./*.dsc -t out/ || :'
+      - 'mv -v ./*.tar* -t out/ || :'
+      - 'mkdir -p "./out/.codebuild-${CODEBUILD_BUILD_ID}"'
+      - 'mv -v ./${DEBUILD_CODEBUILD_SOURCE}/debian/*.symbols -t "out/.codebuild-${CODEBUILD_BUILD_ID}" || :'
+
+artifacts:
+  base-directory: 'out'
+  files:
+    - '**/*'

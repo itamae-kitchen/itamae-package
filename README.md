@@ -27,6 +27,21 @@ package files will be saved to `./out/*`
 
 ### Port package onto arm64
 
+```
+# single source package
+ruby ./port/port.rb bionic out/itamae_XXX.tar.xz
+
+# multiple source packages
+ruby ./port/port-all.rb out/itamae_*.tar.xz
+```
+
+You need to configure AWS CodeBuild to build on arm64 container. Give the following environment variables:
+
+- `ITAMAE_CODEBUILD_REGION`: AWS Region to use
+- `ITAMAE_CODEBUILD_PROJECT`: CodeBuild project name
+- `ITAMAE_CODEBUILD_SOURCE_BUCKET`: source S3 bucket specified to the CodeBuild project
+- `ITAMAE_CODEBUILD_SOURCE_KEY`: source S3 key specified to the CodeBuild project
+
 ## Details
 
 ### Custom rubygems
@@ -43,7 +58,8 @@ These gems are preserved between upgrades, unless an upgrade contains a change i
   - `build.sh`: Build source and binary package for a single distro
     - Build Container
       - `in-container.sh`
-        - `src/prepare.sh`
+        - `src/prepare.sh`: Prepare files for source package
+          - `src/prebuild.sh`
         - `src/build.sh`
           - `debuild` - `debian/rules`
             - `src/build-ruby.sh`

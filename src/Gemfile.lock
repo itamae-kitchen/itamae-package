@@ -3,13 +3,15 @@ GEM
   specs:
     ansi (1.5.0)
     aws-eventstream (1.1.0)
-    aws-sdk (2.11.510)
-      aws-sdk-resources (= 2.11.510)
-    aws-sdk-core (2.11.510)
-      aws-sigv4 (~> 1.0)
+    aws-partitions (1.319.0)
+    aws-sdk-core (3.96.1)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.510)
-      aws-sdk-core (= 2.11.510)
+    aws-sdk-ec2 (1.162.0)
+      aws-sdk-core (~> 3, >= 3.71.0)
+      aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.3)
       aws-eventstream (~> 1.0, >= 1.0.2)
     hashie (4.1.0)
@@ -31,8 +33,8 @@ GEM
       net-ssh (>= 2.7)
       net-telnet (= 0.1.1)
       sfl
-    specinfra-ec2_metadata-tags (0.0.4)
-      aws-sdk (~> 2)
+    specinfra-ec2_metadata-tags (0.0.5)
+      aws-sdk-ec2
       specinfra (~> 2.24)
     thor (1.0.1)
 
@@ -41,7 +43,7 @@ PLATFORMS
 
 DEPENDENCIES
   itamae (= 1.10.8)
-  specinfra-ec2_metadata-tags (= 0.0.4)
+  specinfra-ec2_metadata-tags (= 0.0.5)
 
 BUNDLED WITH
    2.1.4

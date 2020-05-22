@@ -1,5 +1,11 @@
 itamae (1:ITAMAE_VERSION+PKGREV~DIST) DIST; urgency=medium
 
+  * specinfra-ec2_metadata-tags 0.0.5
+
+ -- Sorah Fukumori <sorah@cookpad.com>  Fri, 22 May 2020 09:52:00 +0000
+
+itamae (1:1.10.8+0~DIST) DIST; urgency=medium
+
   * itamae-package
 
  -- Sorah Fukumori <sorah@cookpad.com>  Tue, 19 May 2020 19:09:52 +0000

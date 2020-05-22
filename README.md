@@ -2,6 +2,19 @@
 
 Itamae software packages. Successor of itamae-kitchen/omnibus-itamae.
 
+## Pre-built packages
+
+[ ![Download](https://api.bintray.com/packages/itamae/itamae/itamae/images/download.svg) ](https://bintray.com/itamae/itamae/itamae/_latestVersion)
+
+```
+$ echo 'deb https://dl.bintray.com/itamae/itamae trusty contrib' | sudo tee /etc/apt/sources.list.d/itamae.list
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv D401AB61
+$ sudo apt-get update
+$ sudo apt-get install itamae
+```
+
+or check [releases](https://github.com/itamae-kitchen/itamae-package/releases)
+
 ## Build
 
 ### Prepare sources

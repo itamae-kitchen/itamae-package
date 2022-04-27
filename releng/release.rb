@@ -10,7 +10,7 @@ require 'net/https'
 require 'uri'
 
 BintrayTarget = Struct.new(:gh_organization, :bintray_repo, keyword_init: true)
-NullTarget = Struct.new(:null)
+NullTarget = Struct.new(:gh_organization)
 
 Change = Struct.new(
   :path,
@@ -86,7 +86,7 @@ octo = Octokit::Client.new(access_token: ENV.fetch('GITHUB_ACCESS_TOKEN'))
 puts "=> Destination"
 puts
 
-target = NullTarget.new
+target = NullTarget.new('itamae-kitchen')
 repo_name = 'itamae-package'
 puts "   bintray #{target.inspect}"
 

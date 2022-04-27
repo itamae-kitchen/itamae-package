@@ -21,9 +21,11 @@ image, source_tar_path = ARGV[0,2]
 unless image.include?(':')
   repo = case image
          when 'stretch', 'buster'
-           'debian'
-          else
+           'mirror.gcr.io/library/debian'
+         when 'trusty', 'xenial'
            'ubuntu'
+         else
+           'public.ecr.aws/ubuntu/ubuntu'
          end
   image = "#{repo}:#{image}"
 end

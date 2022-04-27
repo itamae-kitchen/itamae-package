@@ -8,10 +8,19 @@ export ITAMAE_PACKAGE_INSTALL_GEM_TO_OPT=1
 
 /opt/itamae/embedded/bin/gem env
 /opt/itamae/embedded/bin/gem install --no-doc --local --ignore-dependencies vendor/cache/*.gem
+
+if grep -q trusty /etc/lsb-release; then
+  /opt/itamae/embedded/bin/gem install --no-doc --local ./openssl-2.2.1.gem -- --ruby=/opt/itamae/embedded/bin/ruby
+  chrpath -r /opt/itamae/embedded/lib \
+    debian/tmp/opt/itamae/embedded/lib/ruby/gems/3.1.0/extensions/x86_64-linux/3.1.0/openssl-2.2.1/openssl.so \
+    debian/tmp/opt/itamae/embedded/lib/ruby/gems/3.1.0/gems/openssl-2.2.1/ext/openssl/openssl.so \
+    debian/tmp/opt/itamae/embedded/lib/ruby/gems/3.1.0/gems/openssl-2.2.1/lib/openssl.so
+fi
+
 /opt/itamae/embedded/bin/bundle check
 
 ls /opt/itamae/embedded/bin
-/opt/itamae/bin/itamae help
+RUBYOPT=-ropenssl /opt/itamae/bin/itamae help
 
 mkdir -p ${ITAMAE_DESTDIR}/usr/bin
 ln -s ../../opt/itamae/bin/itamae ${ITAMAE_DESTDIR}/usr/bin/itamae

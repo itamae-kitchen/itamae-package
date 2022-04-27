@@ -3,3 +3,4 @@
 /tmp/
 /out/
 /src/ruby/
+/src/*.gem

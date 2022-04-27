@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM mirror.gcr.io/library/debian:buster
 
 # just to invalidate cache
 ARG BUILDDATE=99999999

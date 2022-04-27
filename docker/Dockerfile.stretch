@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM mirror.gcr.io/library/debian:stretch
 
 # just to invalidate cache
 ARG BUILDDATE=99999999

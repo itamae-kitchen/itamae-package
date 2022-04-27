@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM public.ecr.aws/ubuntu/ubuntu:22.04
 
 # just to invalidate cache
 ARG BUILDDATE=99999999

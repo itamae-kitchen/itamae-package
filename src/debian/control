@@ -13,6 +13,7 @@ Build-Depends:
   libncurses-dev,
   libreadline6-dev,
   libssl-dev,
+  libyaml-dev,
   netbase,
   openssl,
   pkg-config,

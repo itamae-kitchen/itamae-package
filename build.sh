@@ -9,7 +9,7 @@ tar cf ./tmp/build-$$/source.tar -C src .
 cp in-container.sh tmp/build-$$/entrypoint.sh
 cp in-container-test.sh tmp/build-$$/test-entrypoint.sh
 
-docker build --build-arg BUILDDATE=$(date +%Y%m%d) -t itamae-package-${dist} -f docker/Dockerfile.${dist} ./docker
+docker buildx build --load --build-arg BUILDDATE=$(date +%Y%m%d) -t itamae-package-${dist} -f docker/Dockerfile.${dist} ./docker
 docker run --rm \
   -e BUILDBOT_UID=$(id -u) \
   -e BUILDBOT_GID=$(id -g) \

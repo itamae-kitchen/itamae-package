@@ -1,5 +1,5 @@
-ITAMAE_RUBY_URL=https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.1.tar.xz
-ITAMAE_RUBY_SHA256=7aefaa6b78b076515d272ec59c4616707a54fc9f2391239737d5f10af7a16caa
+ITAMAE_RUBY_URL=https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.4.tar.xz
+ITAMAE_RUBY_SHA256=e7f1653d653232ec433472489a91afbc7433c9f760cc822defe7437c9d95791b
 
-ITAMAE_VERSION=1.12.6
+ITAMAE_VERSION=1.14.1
 PKGREV=1

@@ -20,7 +20,7 @@ image, source_tar_path = ARGV[0,2]
 
 unless image.include?(':')
   repo = case image
-         when 'stretch', 'buster'
+         when 'stretch', 'buster', 'bookworm'
            'mirror.gcr.io/library/debian'
          when 'trusty', 'xenial'
            'ubuntu'

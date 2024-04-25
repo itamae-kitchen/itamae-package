@@ -1,5 +1,5 @@
 #!/bin/bash -xe
 
-for x in trusty xenial bionic focal jammy noble stretch buster bookworm; do
+for x in xenial bionic focal jammy noble buster bookworm; do
   ./build.sh ${x}
 done

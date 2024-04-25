@@ -27,4 +27,4 @@ mkdir -p out
 mv ./tmp/build-$$/out/* ./out/
 
 git tag -d debian/${debian_tag} || :
-git tag debian/${debian_tag}
+git tag -s -m "debian release ${debian_version}" debian/${debian_tag}
